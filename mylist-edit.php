@@ -170,7 +170,7 @@ span{
                             <input type="text" class="form-control" name="nama_film" value="<?php echo $v['nama_film'] ?>">
                         </div>
 
-                        <div class="col">
+                        <div class="col content">
                             <label class="form-label">Genre:</label>
                             <inp type="text" class="form-control" name="genre" value="<?php echo $v['genre'] ?>">
                             <select name="genre">

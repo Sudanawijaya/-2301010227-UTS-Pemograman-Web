@@ -1,9 +1,10 @@
 <?php
 session_start(); 
-require_once"app.php";
-
+require_once "app.php";
 $p = getAllData($conn);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,34 +235,42 @@ body {
 }
 
 .styled-table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px; /* Menurunkan posisi tabel */
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 .styled-table th, .styled-table td {
     border: 1px solid #ddd;
     padding: 8px;
     background: #000;
+    
     /* color: var( --second-bg-color); */
 }
 
 .styled-table th {
     background-color: #FF2400;
-    text-align: left;
+    text-align: center;
+}
+.styled-table td {
+    text-align: center;
 }
 span{
     color: var(--main-color);
 }
 
-
 /* Mengatur ukuran gambar */
 /* img {
     width: 1500px; /* Ubah sesuai kebutuhan */
     /* height: 600px; Biarkan tinggi otomatis menyesuaikan proporsi gambar */ */
-  
+
 </style>
 </head>
+
+
 <body>
   <div class="container">
     <div class="overlay">
@@ -270,13 +279,16 @@ span{
   </div>
 
 </style>
+
+
 <body>
     <header>
         <div class="container">
         <div class="logo">Sudana<span>Flix</span></div>
             <nav>
                 <ul>
-                    <li><a href="index.php"class="a-btn">kembali</a></li>
+                    <li><a href="home.php"class="a-btn">kembali</a></li>
+                    <li><a href="mylist-tambah.php"class="a-btn">Create</a>
                 </ul>
             </nav>
             <div class="search-container">
@@ -287,13 +299,13 @@ span{
     </header>
     <br>
     <br>
-    <a href="mylist-tambah.php"class="a-btn">Create</a>
     <br>
     <br>
 
-    <?php if (isset($_SESSION['BERHASIL_TAMBAH_FILM'])): ?>
-    <p><?= $_SESSION['BERHASIL_TAMBAH_FILM'] ?></P>
-    <?php session_unset(); ?>
+     
+    <?php if (isset($_SESSION['BERHASIL_TAMBAH_FILM'])) : ?> 
+            <?= $_SESSION['BERHASIL_TAMBAH_FILM'] ?>
+            <?php session_unset(); ?>
     <?php endif; ?>
     
     <table class="styled-table">
@@ -319,7 +331,7 @@ span{
                 <td><?= $v['tahun_rilis'] ?></td>
                 <td>
                     <a href="<?= "/mylist-detail.php?id={$v['id']}" ?>"class="btn btn-primary">show</a>
-                    <a href="<?= "/mylist-hapus.php?id={$v['id']}" ?>"class="btn btn-danger">Delete</a>
+                    <a href="<?= "/mylist-hapus.php?id={$v['id']}" ?>"class="btn btn-danger" onClick="return confirm('Yakin untuk menghapus data?');">Delete</a>
                     <a href="<?= "/mylist-edit.php?id={$v['id']}" ?>"class="btn btn-success">update</a>
             </tr>
         <?php endforeach; ?>
@@ -327,6 +339,7 @@ span{
         
         </tbody>
     </table>
+
 <?php
     mysqli_close($conn);
 ?>

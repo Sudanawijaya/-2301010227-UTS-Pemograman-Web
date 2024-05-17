@@ -222,6 +222,14 @@ body {
     box-shadow: 0 0 20px var(--main-color);
     transform: scale(1.1);
 }
+.footer {
+    flex-direction: column-reverse;
+    color: #fff;
+}
+.footer p {
+    text-align: center;
+    margin-top: 2rem;
+}
 span{
     color: var(--main-color);
 }
@@ -243,6 +251,17 @@ span{
     width: 1500px; /* Ubah sesuai kebutuhan */
     /* height: 600px; Biarkan tinggi otomatis menyesuaikan proporsi gambar */ */
   }  
+  footer {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #000;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+ }
 </style>
 </head>
 <body>
@@ -259,7 +278,7 @@ span{
         <div class="logo">Sudana<span>Flix</span></div>
             <nav>
                 <ul>
-                    <li><a href="index.php"class="a-btn">kembali</a></li>
+                    <li><a href="home.php"class="a-btn">kembali</a></li>
                 </ul>
             </nav>
             <div class="search-container">
@@ -366,9 +385,11 @@ span{
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright @ 2023 by Sudanawijaya | ALL Rights Reserved.</p>
+    <footer>
+        <div class= "kaki">
+             Copyright @ 2024 by Sudanawijaya | ALL Rights Reserved.
+             
         </div>
+ </footer>
     </footer>
    
